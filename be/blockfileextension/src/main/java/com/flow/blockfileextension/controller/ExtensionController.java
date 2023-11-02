@@ -48,4 +48,16 @@ public class ExtensionController {
         return new ResponseEntity<>("Delete Success", HttpStatus.OK);
     }
 
+    @PostMapping("/activate")
+    public ResponseEntity<?> activateFixedExtension(@RequestParam("extensionName") String extensionName) {
+        extensionService.activateFixedExtension(extensionName);
+        return new ResponseEntity<>("Activated", HttpStatus.OK);
+    }
+
+    @PostMapping("/deactivate")
+    public ResponseEntity<?> deactivateFixedExtension(@RequestParam("extensionName") String extensionName) {
+        extensionService.deActivateFixedExtension(extensionName);
+        return new ResponseEntity<>("DeAtivated", HttpStatus.OK);
+    }
+
 }

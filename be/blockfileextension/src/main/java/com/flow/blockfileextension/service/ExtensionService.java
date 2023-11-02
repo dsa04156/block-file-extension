@@ -63,4 +63,18 @@ public class ExtensionService {
     public void deleteCustomExtension(String extensionName) {
         customExtensionRepository.deleteByExtensionName(extensionName);
     }
+
+    public void activateFixedExtension(String extensionName) {
+        FixedExtensionEntity fixedExtensionEntity = fixedExtensionRepository.findByExtensionName(extensionName);
+        fixedExtensionEntity.setIsEnabled(1);
+        fixedExtensionRepository.save(fixedExtensionEntity);
+
+
+    }
+
+    public void deActivateFixedExtension(String extensionName) {
+        FixedExtensionEntity fixedExtensionEntity = fixedExtensionRepository.findByExtensionName(extensionName);
+        fixedExtensionEntity.setIsEnabled(0);
+        fixedExtensionRepository.save(fixedExtensionEntity);
+    }
 }

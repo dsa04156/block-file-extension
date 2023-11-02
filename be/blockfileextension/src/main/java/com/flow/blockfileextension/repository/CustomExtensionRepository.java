@@ -16,4 +16,6 @@ public interface CustomExtensionRepository extends JpaRepository<CustomExtension
     public CustomExtensionEntity findByExtensionName(String extensionName);
 
     public CustomExtensionEntity save(String extensionName);
+
+    void deleteByExtensionName(String extensionName);
 }

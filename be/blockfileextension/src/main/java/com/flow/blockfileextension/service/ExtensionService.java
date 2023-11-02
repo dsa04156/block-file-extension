@@ -5,6 +5,7 @@ import com.flow.blockfileextension.domain.entity.CustomExtensionEntity;
 import com.flow.blockfileextension.domain.entity.FixedExtensionEntity;
 import com.flow.blockfileextension.repository.CustomExtensionRepository;
 import com.flow.blockfileextension.repository.FixedExtensionRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -58,5 +59,8 @@ public class ExtensionService {
         customExtensionRepository.save(customExtensionEntity);
     }
 
-
+    @Transactional
+    public void deleteCustomExtension(String extensionName) {
+        customExtensionRepository.deleteByExtensionName(extensionName);
+    }
 }

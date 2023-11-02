@@ -9,4 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ExtensionDto {
     private String extensionName;
+
+    private Integer isEnabled;
 }

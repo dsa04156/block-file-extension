@@ -1,5 +1,8 @@
 package com.flow.blockfileextension.domain.dto;
 
+import com.flow.blockfileextension.domain.entity.CustomExtensionEntity;
+import com.flow.blockfileextension.domain.entity.FixedExtensionEntity;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ExtensionDto {
-    private String extensionName;
-
-    private Integer isEnabled;
+    private List<FixedExtensionEntity> fixedExtensionEntityList;
+    private List<CustomExtensionEntity> customExtensionEntities;
 }

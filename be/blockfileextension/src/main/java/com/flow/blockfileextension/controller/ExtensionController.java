@@ -2,7 +2,6 @@ package com.flow.blockfileextension.controller;
 
 import com.flow.blockfileextension.domain.dto.ExtensionDto;
 import com.flow.blockfileextension.service.ExtensionService;
-import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +23,23 @@ public class ExtensionController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addExtension(@RequestParam("extensionName") String extensionName) {
-        //있는지 없는지 확인한 다음 있으면 count+1 없으면 생성하고 count=1 그리고 추가하고 true로
-        if (!extensionService.existsByExtensionName(extensionName)) {
-            extensionService.saveExtension(extensionName);
+        if (extensionService.existByExtensionName(extensionName)) {
+            System.out.println(1);
+            return new ResponseEntity<>("duplicateName", HttpStatus.BAD_REQUEST);
         }
-        List<ExtensionDto> extensionDtos = extensionService.findExtensions();
-        return new ResponseEntity<>(extensionDtos, HttpStatus.OK);
+        if (!extensionService.countCustomExtension(extensionName)) {
+            return new ResponseEntity<>("over", HttpStatus.BAD_REQUEST);
+        }
+        extensionService.saveCustomExtension(extensionName);
+
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 
     @GetMapping("/get")
-    public ResponseEntity<List<ExtensionDto>> getAllExtention() {
-        List<ExtensionDto> extensionDtos = extensionService.findExtensions();
-        return new ResponseEntity<List<ExtensionDto>>(extensionDtos, HttpStatus.OK);
+    public ResponseEntity<ExtensionDto> getAllExtention() {
+        ExtensionDto extensionDto = extensionService.findExtensions();
+        return new ResponseEntity<ExtensionDto>(extensionDto, HttpStatus.OK);
     }
 
 }

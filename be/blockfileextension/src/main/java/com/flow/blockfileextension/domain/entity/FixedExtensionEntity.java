@@ -13,18 +13,15 @@ import org.hibernate.annotations.ColumnDefault;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "extensions")
-public class ExtensionEntity {
+@Table(name = "fixed_extensions")
+public class FixedExtensionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "extension_name", columnDefinition = "VARCHAR(200)", unique = true, nullable = false)
+    @Column(name = "extension_name", columnDefinition = "VARCHAR(20)", unique = true, nullable = false)
     private String extensionName;
 
-    @Column(name = "use_count", columnDefinition = "int")
-    @ColumnDefault("0")
-    private int useCount;
 
     @Column(name = "is_enabled", columnDefinition = "TINYINT(1)")
     @ColumnDefault("0")

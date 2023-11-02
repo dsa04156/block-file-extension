@@ -1,5 +1,6 @@
 package com.flow.blockfileextension.controller;
 
+import com.flow.blockfileextension.domain.dto.ExtensionDto;
 import com.flow.blockfileextension.service.ExtensionService;
 import java.util.List;
 import org.slf4j.Logger;
@@ -23,15 +24,19 @@ public class ExtensionController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addExtension(@RequestParam("extensionName") String extensionName) {
-
-        return new ResponseEntity<String>(HttpStatus.OK);
+        //있는지 없는지 확인한 다음 있으면 count+1 없으면 생성하고 count=1 그리고 추가하고 true로
+        if (!extensionService.existsByExtensionName(extensionName)) {
+            extensionService.saveExtension(extensionName);
+        }
+        List<ExtensionDto> extensionDtos = extensionService.findExtensions();
+        return new ResponseEntity<>(extensionDtos, HttpStatus.OK);
     }
 
 
     @GetMapping("/get")
-    public ResponseEntity<List<String>> getAllExtention() {
-        List<String> extensionDtos = extensionService.findExtensionNames();
-        return new ResponseEntity<List<String>>(extensionDtos, HttpStatus.OK);
+    public ResponseEntity<List<ExtensionDto>> getAllExtention() {
+        List<ExtensionDto> extensionDtos = extensionService.findExtensions();
+        return new ResponseEntity<List<ExtensionDto>>(extensionDtos, HttpStatus.OK);
     }
 
 }

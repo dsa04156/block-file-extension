@@ -6,31 +6,29 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 @NoArgsConstructor
-@Getter
+@Data
 @Entity
 @Table(name = "extensions")
 public class ExtensionEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "extension", columnDefinition = "TEXT", length = 200, nullable = false, unique = true)
+    @Column(name = "extension_name", columnDefinition = "VARCHAR(200)", unique = true, nullable = false)
     private String extensionName;
 
-    @Column(columnDefinition = "int", nullable = false)
+    @Column(name = "use_count", columnDefinition = "int")
     @ColumnDefault("0")
     private int useCount;
 
-    @Builder
-    public ExtensionEntity(String extensionName) {
-        this.extensionName = extensionName;
-    }
+    @Column(name = "is_enabled", columnDefinition = "TINYINT(1)")
+    @ColumnDefault("0")
+    private Integer isEnabled;
 
 
 }

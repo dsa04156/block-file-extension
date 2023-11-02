@@ -9,5 +9,9 @@ import org.springframework.stereotype.Repository;
 public interface FixedExtensionRepository extends JpaRepository<FixedExtensionEntity, Integer> {
     List<FixedExtensionEntity> findAll();
 
+    FixedExtensionEntity findByExtensionName(String extensionName);
+
+    FixedExtensionEntity save(FixedExtensionEntity fixedExtensionEntity);
+
 
 }

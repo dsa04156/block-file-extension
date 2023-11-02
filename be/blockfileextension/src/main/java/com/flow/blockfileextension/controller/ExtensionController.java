@@ -2,6 +2,7 @@ package com.flow.blockfileextension.controller;
 
 import com.flow.blockfileextension.domain.dto.ExtensionDto;
 import com.flow.blockfileextension.service.ExtensionService;
+import com.flow.blockfileextension.util.NameValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,14 @@ public class ExtensionController {
     ExtensionService extensionService;
 
     @PostMapping("/add")
-    public ResponseEntity<?> addExtension(@RequestParam("extensionName") String extensionName) {
+    public ResponseEntity<?> addCustomExtension(@RequestParam("extensionName") String extensionName) {
+        if (NameValidation.isValidNameLength(extensionName)) {
+            return new ResponseEntity<>("too long, please Within 20 characters", HttpStatus.BAD_REQUEST);
+        }
+        if (NameValidation.isLowerCase(extensionName)) {
+            return new ResponseEntity<>("Please write it in lower-case English", HttpStatus.BAD_REQUEST);
+        }
         if (extensionService.existByExtensionName(extensionName)) {
-            System.out.println(1);
             return new ResponseEntity<>("duplicateName", HttpStatus.BAD_REQUEST);
         }
         if (!extensionService.countCustomExtension(extensionName)) {

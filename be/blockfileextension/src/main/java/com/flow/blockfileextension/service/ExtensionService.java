@@ -47,7 +47,7 @@ public class ExtensionService {
     public Long countCustomExtension() {
         Long getCount = customExtensionRepository.getTotalExtensions();
         if (getCount > 200) {
-            return 0L;
+            return 200L;
         }
 
         return getCount;

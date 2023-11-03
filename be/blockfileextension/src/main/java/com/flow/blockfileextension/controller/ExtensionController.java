@@ -37,7 +37,7 @@ public class ExtensionController {
         if (extensionService.existByExtensionName(extensionName)) {
             return new ResponseEntity<>("duplicateName", HttpStatus.BAD_REQUEST);
         }
-        if (extensionService.countCustomExtension() == 0L) {
+        if (extensionService.countCustomExtension() == 200) {
             return new ResponseEntity<>("over", HttpStatus.BAD_REQUEST);
         }
         extensionService.saveCustomExtension(extensionName);

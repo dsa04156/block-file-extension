@@ -25,3 +25,4 @@
 | `/api/delete`     | DELETE     | `extensionName` | 커스텀 확장자 삭제                                                | 200 (OK)     | - 삭제 결과 메시지                               |
 | `/api/activate`   | POST       | `extensionName` | 고정 확장자 활성화                                                | 200 (OK)     | - 활성화 결과 메시지                              |
 | `/api/deactivate` | POST       | `extensionName` | 고정 확장자 비활성화                                               | 200 (OK)     | - 비활성화 결과 메시지                             |
+| `/api/count` | GET       | - | 커스텀 확장자 갯수 카운트                                               | 200 (OK)     | - 갯수 표시                             |

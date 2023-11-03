@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>파일 확장자 차단</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <hr />
+    <h1>◎ 파일 확장자 차단</h1>
+
+    <hr style="border: solid 1px black" />
+    <p>
+      파일확장자에 따라 특정 형식의 파일을 첨부하거나 전송하지 못하도록
+      제한합니다.
+    </p>
+    <div class="maincontainer">
+      <table class="file-extension-block">
+        <tbody>
+          <tr>
+            <td>고정 확장자</td>
+            <td>
+              <label for="bat">
+                <input
+                  type="checkbox"
+                  id="bat"
+                  name="fixed-extensions"
+                  value="bat"
+                />
+                bat
+              </label>
+              <label for="cmd">
+                <input
+                  type="checkbox"
+                  id="cmd"
+                  name="fixed-extensions"
+                  value="cmd"
+                />
+                cmd
+              </label>
+              <label for="com">
+                <input
+                  type="checkbox"
+                  id="com"
+                  name="fixed-extensions"
+                  value="com"
+                />
+                com
+              </label>
+              <label for="cpl">
+                <input
+                  type="checkbox"
+                  id="cpl"
+                  name="fixed-extensions"
+                  value="cpl"
+                />
+                cpl
+              </label>
+              <label for="exe">
+                <input
+                  type="checkbox"
+                  id="exe"
+                  name="fixed-extensions"
+                  value="exe"
+                />
+                exe
+              </label>
+              <label for="scr">
+                <input
+                  type="checkbox"
+                  id="scr"
+                  name="fixed-extensions"
+                  value="scr"
+                />
+                scr
+              </label>
+              <label for="js">
+                <input
+                  type="checkbox"
+                  id="js"
+                  name="fixed-extensions"
+                  value="js"
+                />
+                js
+              </label>
+            </td>
+          </tr>
+          <tr>
+            <td>커스텀 확장자</td>
+            <td>
+              <input
+                type="text"
+                placeholder="확장자 입력"
+                id="custom-extension"
+              />
+              <button id="add-custom-extension">+추가</button>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="custom-extension-list-tr">
+              <ul class="custom-extension-list">
+                <span id="count">0/200</span>
+                <div></div>
+                <div class="close-button"></div>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="js/main.js"></script>
+  </body>
+</html>

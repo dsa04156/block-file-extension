@@ -1,0 +1,115 @@
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.container {
+  width: 500px;
+  margin: 0 auto;
+}
+
+.maincontainer {
+  width: 60vw;
+  margin: 0 auto;
+}
+
+h1 {
+  margin-left: 100px;
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+p {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+table {
+  width: 100%;
+  height: 30vh;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #ccc;
+}
+
+th,
+td {
+  height: 100%;
+  padding: 10px;
+}
+
+.file-extension-block {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.file-extension-block {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+#custom-extension {
+  width: 50%;
+  border-radius: 7px;
+}
+
+.custom-extension-list-tr {
+  margin-top: -5px;
+}
+
+.custom-extension-list {
+  width: 100%;
+  height: 15vh;
+  margin-top: 0px;
+  border: 1px solid #ccc;
+  padding: 0px;
+  border-radius: 7px;
+  overflow-y: auto;
+  max-width: 500px;
+  margin-bottom: 0px;
+}
+
+.custom-extension-list li {
+  list-style: none;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.close-button {
+  margin-left: 10px;
+}
+
+.btn__close {
+  display: inline-block;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid;
+  color: gray;
+  margin-left: 5px;
+  margin-top: 5px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.btn__close:after {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 14px;
+}
+
+#count {
+  margin-left: 6px;
+  color: black;
+  text-align: center;
+  font-size: 11px;
+}

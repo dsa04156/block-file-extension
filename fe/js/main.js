@@ -28,12 +28,6 @@ async function initializeCustomExtensionList() {
     button.innerText = entity.extensionName;
     button.id = entity.id;
     customExtensionList.appendChild(button);
-    button.addEventListener("click", () => {
-      console.log(button.innerText);
-      const extensionNameToDelete = button.innerText;
-      deleteCustomExtension(extensionNameToDelete);
-      customExtensionList.removeChild(button);
-    });
   });
 
   // fixedExtensionEntityList의 데이터를 사용하여 체크박스에 체크를 합니다.
@@ -46,6 +40,17 @@ async function initializeCustomExtensionList() {
     }
   });
 }
+
+customExtensionList.addEventListener("click", (event) => {
+  const target = event.target;
+  if (target.classList.contains("btn__close")) {
+    const button = target;
+    console.log(button.innerText);
+    const extensionNameToDelete = button.innerText;
+    deleteCustomExtension(extensionNameToDelete);
+    customExtensionList.removeChild(button);
+  }
+});
 
 async function updateCustomExtensionCount() {
   const countElement = document.getElementById("count");

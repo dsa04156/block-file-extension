@@ -44,12 +44,13 @@ public class ExtensionService {
         }
     }
 
-    public boolean countCustomExtension(String extensionName) {
-        if (customExtensionRepository.getTotalExtensions() > 200) {
-            return false;
+    public Long countCustomExtension() {
+        Long getCount = customExtensionRepository.getTotalExtensions();
+        if (getCount > 200) {
+            return 0L;
         }
 
-        return true;
+        return getCount;
 
     }
 

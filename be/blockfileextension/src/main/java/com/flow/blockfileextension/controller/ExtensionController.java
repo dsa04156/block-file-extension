@@ -25,16 +25,16 @@ public class ExtensionController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addCustomExtension(@RequestParam("extensionName") String extensionName) {
-        if (NameValidation.isValidNameLength(extensionName)) {
+        if (!NameValidation.isValidNameLength(extensionName)) {
             return new ResponseEntity<>("too long, please Within 20 characters", HttpStatus.BAD_REQUEST);
         }
-        if (NameValidation.isLowerCase(extensionName)) {
+        if (!NameValidation.isLowerCase(extensionName)) {
             return new ResponseEntity<>("Please write it in lower-case English", HttpStatus.BAD_REQUEST);
         }
         if (extensionService.existByExtensionName(extensionName)) {
             return new ResponseEntity<>("duplicateName", HttpStatus.BAD_REQUEST);
         }
-        if (!extensionService.countCustomExtension(extensionName)) {
+        if (extensionService.countCustomExtension() == 0L) {
             return new ResponseEntity<>("over", HttpStatus.BAD_REQUEST);
         }
         extensionService.saveCustomExtension(extensionName);
@@ -46,6 +46,11 @@ public class ExtensionController {
     public ResponseEntity<ExtensionDto> getAllExtention() {
         ExtensionDto extensionDto = extensionService.findExtensions();
         return new ResponseEntity<ExtensionDto>(extensionDto, HttpStatus.OK);
+    }
+
+    @GetMapping("/count")
+    public ResponseEntity<Long> getCustomExtensionCount() {
+        return new ResponseEntity<>(extensionService.countCustomExtension(), HttpStatus.OK);
     }
 
     @DeleteMapping("/delete")

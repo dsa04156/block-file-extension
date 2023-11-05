@@ -1,3 +1,5 @@
+swagger 주소 : http://118.67.142.103:8080/swagger-ui/index.html#/
+
 # 기능명세서
 ### 1. 자주 차단하는 확장자 리스트
 #### - bat, cmd, com, cpl, exe, scr, js

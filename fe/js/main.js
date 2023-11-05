@@ -4,7 +4,7 @@ const addCustomExtensionButton = document.querySelector(
   "#add-custom-extension"
 );
 
-const baseUrl = "http://localhost:8080/api";
+const baseUrl = "http://118.67.142.103:8080/api";
 
 // 비동기 함수 정의
 async function getCustomExtensionList() {

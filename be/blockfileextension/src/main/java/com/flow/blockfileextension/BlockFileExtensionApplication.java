@@ -8,6 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BlockFileExtensionApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(BlockFileExtensionApplication.class, args);
+
     }
 }

@@ -90,9 +90,6 @@ async function deleteCustomExtension(extensionName) {
 // 페이지가 로드될 때 또는 새로 고침될 때 customExtensionList를 초기화합니다.
 window.addEventListener("load", initializeCustomExtensionList);
 
-// 나머지 코드는 이전 예제와 동일합니다.
-// addCustomExtension 함수 및 이벤트 핸들러 등록 코드는 변경할 필요가 없습니다.
-
 // addCustomExtension 함수 정의
 async function addCustomExtension() {
   // 사용자 입력 가져오기
